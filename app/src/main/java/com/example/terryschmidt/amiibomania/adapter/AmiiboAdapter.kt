@@ -33,7 +33,7 @@ class AmiiboAdapter(var amiibos: List<Amiibo>?) : RecyclerView.Adapter<AmiiboAda
             val detailActivityIntent = Intent(view?.context, AmiiboDetailActivity::class.java)
             detailActivityIntent.putExtra("name", name.text)
             detailActivityIntent.putExtra("series", amiiboSeries.text)
-            val release = amiibos?.get(layoutPosition)?.release?.get("na").toString()
+            val release = amiibos?.get(layoutPosition)?.release?.get("na")?.asString
             detailActivityIntent.putExtra("release", release)
             view?.context?.startActivity(detailActivityIntent)
         }
