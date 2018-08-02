@@ -52,8 +52,6 @@ class AmiiboActivity : AppCompatActivity() {
                 if (newAmiiboList != null) {
                     amiiboAdapter.swap(newAmiiboList)
                 }
-
-                Log.d("TerryLog", "NA Release: " + newAmiiboList?.get(0)?.release?.get("na"))
             }
         })
     }
