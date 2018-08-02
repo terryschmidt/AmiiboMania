@@ -33,7 +33,14 @@ class AmiiboAdapter(var amiibos: List<Amiibo>?) : RecyclerView.Adapter<AmiiboAda
             val detailActivityIntent = Intent(view?.context, AmiiboDetailActivity::class.java)
             detailActivityIntent.putExtra("name", name.text)
             detailActivityIntent.putExtra("series", amiiboSeries.text)
-            val release = amiibos?.get(layoutPosition)?.release?.get("na")?.asString
+            var release: String?
+            try {
+                release = amiibos?.get(layoutPosition)?.release?.get("na")?.asString
+            } catch (e: UnsupportedOperationException) {
+                release = "Unknown"
+            }
+
+            if (release == null) { release = "Unknown" }
             detailActivityIntent.putExtra("release", release)
             view?.context?.startActivity(detailActivityIntent)
         }
