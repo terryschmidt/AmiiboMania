@@ -18,15 +18,13 @@ import retrofit2.Response
 class AmiiboActivity : AppCompatActivity() {
 
     private lateinit var amiiboRecycler: RecyclerView
-    private lateinit var amiibos: List<Amiibo>
     private lateinit var amiiboAdapter: AmiiboAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_amiibo)
         amiiboRecycler = findViewById(R.id.amiiboRecycler)
-        amiibos = ArrayList()
-        amiiboAdapter = AmiiboAdapter(amiibos)
+        amiiboAdapter = AmiiboAdapter(ArrayList())
         val layoutManager = LinearLayoutManager(this)
         amiiboRecycler.setLayoutManager(layoutManager)
         amiiboRecycler.adapter = amiiboAdapter
